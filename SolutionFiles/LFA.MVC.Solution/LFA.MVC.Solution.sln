@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFA.MVC", "..\..\UI\LFA.MVC\LFA.MVC.csproj", "{17BC5B0B-ECA4-42D6-84FF-ACEC258D804F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedProjects", "SharedProjects", "{F38BA924-8CDB-4CF0-AA01-17AA1DD81CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFA.Common", "..\..\SharedProjects\LFA.Common\LFA.Common.csproj", "{1C0BF403-FBC5-4765-B2AA-0F5E893F3462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{17BC5B0B-ECA4-42D6-84FF-ACEC258D804F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17BC5B0B-ECA4-42D6-84FF-ACEC258D804F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17BC5B0B-ECA4-42D6-84FF-ACEC258D804F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0BF403-FBC5-4765-B2AA-0F5E893F3462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0BF403-FBC5-4765-B2AA-0F5E893F3462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0BF403-FBC5-4765-B2AA-0F5E893F3462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0BF403-FBC5-4765-B2AA-0F5E893F3462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C0BF403-FBC5-4765-B2AA-0F5E893F3462} = {F38BA924-8CDB-4CF0-AA01-17AA1DD81CBE}
 	EndGlobalSection
 EndGlobal
