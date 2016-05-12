@@ -41,10 +41,16 @@ namespace ConsoleApp
         //    ((userName == "admin") && (password == "password")) || ((userName == "user") && (Password == "password"));
         //}
 
-        public string Authenticate(string userName = "admin", string password = "password")
-        {
-            return userName; 
+        //public string Authenticate(string userName = "admin", string password = "password")
+        //{
+        //    return userName; 
             
+        //}
+
+        public string GetUser(string userName = "admin", string password = "password")
+        {
+            return userName;
+
         }
 
     }
