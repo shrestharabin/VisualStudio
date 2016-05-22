@@ -50,6 +50,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharedProjects\LFA.Biz\LFA.Biz.csproj">
+      <Project>{051520be-b0d0-4fe6-9371-15c0545d7858}</Project>
+      <Name>LFA.Biz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharedProjects\LFA.Common\LFA.Common.csproj">
+      <Project>{1c0bf403-fbc5-4765-b2aa-0f5e893f3462}</Project>
+      <Name>LFA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharedProjects\LFA.Data\LFA.Data\LFA.Data.csproj">
+      <Project>{4e6f1214-a351-4764-816c-cfda116de046}</Project>
+      <Name>LFA.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

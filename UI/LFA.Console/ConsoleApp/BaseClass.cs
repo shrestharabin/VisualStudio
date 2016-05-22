@@ -20,8 +20,8 @@ namespace ConsoleApp
         public void display()
         {
             Console.WriteLine("Overwirte");
-      }
-    
+        }
+
     }
 
     public class DerivedOverride : BaseClass

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
+using LFA.Data;
+
 
 namespace ConsoleApp
 {
@@ -11,6 +16,82 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+         //---------------------------------------------------------------------------------------------------------------------------------------
+            //22May2016
+           //insert data through Stored Procedure
+            Console.WriteLine("Role Entry Form:");
+            Console.WriteLine("--------------------");
+            Console.Write("Role Name: ");
+            string strRoleName = Console.ReadLine();
+            Console.Write("Role Description: ");
+            string strRoleDescription = Console.ReadLine();
+
+            string strConn = @"Password=rabin;Persist Security Info=True;User ID=sa;Initial Catalog=LFABlog;Data Source=NLI016A\RSQLSERVER";
+
+            using (SqlConnection conn =new SqlConnection(strConn))
+            {
+                using (SqlCommand cmd=new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "spSaveRole";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //cmd.Parameters.AddWithValue("@RoleId", 0);
+                    cmd.Parameters.AddWithValue("@RoleName",strRoleName);
+                    cmd.Parameters.AddWithValue("@RoleDescription", strRoleDescription);
+
+                    conn.Open();
+
+                    try
+                    {
+                        var output = cmd.ExecuteScalar();
+                        Console.WriteLine(output);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine(ex.ToString());
+                    }
+                }
+                Console.Read();
+            }
+
+            
+        //---------------------------------------------------------------------------------------------------------------------------------------
+            //19May2016
+           //OleDbConnection con=new OleDbConnection(); //for universal database connection
+            
+            SqlConnection conn1 = new SqlConnection(@"Password=rabin;Persist Security Info=True;User ID=sa;Initial Catalog=LFABlog;Data Source=NLI016A\RSQLSERVER");
+
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection=conn1;
+            cmd1.CommandText="Select * from dbo.Roles";
+            cmd1.CommandType=CommandType.Text;
+
+            conn1.Open();
+            SqlDataReader dr=cmd1.ExecuteReader();
+            List<LFARole> lstRoles = new List<LFARole>();
+
+            Console.WriteLine("Role Name \t Role Description");
+            Console.WriteLine("--------------------------------------");
+            while (dr.Read())
+            {
+                LFARole objRole = new LFARole();
+                objRole.RoleId = int.Parse(dr[0].ToString());
+                objRole.RoleName = dr["Rolename"].ToString();
+                objRole.RoleDescription = dr[2].ToString();
+                lstRoles.Add(objRole);
+            }
+
+            foreach (var objRole in lstRoles)
+            {
+                Console.WriteLine("{0} \t\t {1}", objRole.RoleName, objRole.RoleDescription); 
+            }
+            //Console.WriteLine(dr["RoleName"]);
+            dr.Close();
+            conn1.Close();
+
+            Console.Read();
+            //------------------------------
             //week3.1
             int y = new int();
             y = 2;
